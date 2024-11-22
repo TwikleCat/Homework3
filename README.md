@@ -49,7 +49,10 @@ print(f"Number of Unique Customers: {unique_customers}")
 orders_per_customer = df.groupby('Customer ID')['Total Price'].count().mean()
 print(f"Average Orders per Customer: {orders_per_customer:.2f}")
 ```
-
+```
+avg_ship = df['Shipping Fee'].mean()
+print(f"Average Shipping Fee: ${avg_ship:,.2f}")
+```
 ```
 
 customer_revenue = df.groupby('Customer ID')['Total Price'].sum().sort_values(ascending=False)
