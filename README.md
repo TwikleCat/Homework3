@@ -128,3 +128,18 @@ plt.ylabel('Total Revenue ($)', fontsize=12)
 plt.xticks(rotation=45)
 plt.show()
 ```
+
+```
+gender_region_orders = df.groupby(['Region', 'Gender'])['Customer ID'].nunique().reset_index()
+gender_region_orders.columns = ['Region', 'Gender', 'Number of Customers']
+print(gender_region_orders)
+custom_palette = {'Female': 'red', 'Male': 'blue'}
+
+plt.figure(figsize=(12, 6))
+sns.barplot(x='Region', y='Number of Customers', hue='Gender', data=gender_region_orders, palette=custom_palette)
+plt.title('Number of Male and Female Customers by Region', fontsize=16)
+plt.xlabel('Region', fontsize=12)
+plt.ylabel('Number of Customers', fontsize=12)
+plt.xticks(rotation=45) 
+plt.show()
+```
